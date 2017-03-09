@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<MyBeerBlog.Models.Beer>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -26,5 +28,29 @@
         <h2>Current Events</h2>
         <p>Where am I going to try beers next?</p>
         <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <h2>A List of Beers</h2>
+@foreach (var item in Model)
+{
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="pull-left padding-right" src="../imgs/@item.ImageUrl" alt="Placeholder">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@item.Name</h4>
+            Type: @item.Type<br />
+            Company: @item.Company<br />
+            Alcohol Content: @item.AlcoholContent<br />
+            Calories per 12oz serving: @item.Calories<br />
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        </div>
+    </div>
+    <hr />
+}
     </div>
 </div>

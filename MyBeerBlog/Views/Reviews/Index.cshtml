@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyBeerBlog.Models.BeerReviews>
+﻿@*@model IEnumerable<MyBeerBlog.Models.BeerReviews>
 
 @{
     ViewBag.Title = "Index";
@@ -18,7 +18,6 @@ We are showing the latest @Model.Count() reviews.
         </div>
         <div class="media-body">
             <h4 class="media-heading">@item.Name</h4>
-            Type: @item.Type<br />
             Rating: @item.Rating / 10<br />
             @item.Comments<br />
             @Html.ActionLink("Edit", "Edit", new { id = item.Id })
@@ -30,7 +29,7 @@ We are showing the latest @Model.Count() reviews.
 
 <p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 
 
 
