@@ -50,23 +50,23 @@ namespace MyBeerBlog.Controllers
         // GET: Reviews/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var review = _reviews.Single(r => r.Id == id);
+        
+            return View(review);
         }
 
         // POST: Reviews/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
+            var review = _reviews.Single(r => r.Id == id);
+            if (TryUpdateModel(review))
             {
-                // TODO: Add update logic here
+                // .. if successful, will save in a database later 
+                return RedirectToAction("Index"); //redirect back to Reviews/Index (Reviews Listing)
 
-                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(review);
         }
 
         // GET: Reviews/Delete/5
